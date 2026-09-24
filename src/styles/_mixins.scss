@@ -1,0 +1,83 @@
+@use "variables" as *;
+
+@mixin desktop {
+  @media (min-width: $bp-desktop) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: $bp-tablet) {
+    @content;
+  }
+}
+
+@mixin mobile-only {
+  @media (max-width: #{$bp-desktop - 1px}) {
+    @content;
+  }
+}
+
+@mixin wide-desktop {
+  @media (min-width: $bp-preview-side-by-side) {
+    @content;
+  }
+}
+
+@mixin reduced-motion {
+  @media (prefers-reduced-motion: reduce) {
+    @content;
+  }
+}
+
+@mixin container {
+  width: 100%;
+  max-width: $max-width;
+  margin-inline: auto;
+  padding-inline: 2rem;
+
+  @include desktop {
+    padding-inline: $space-xl;
+  }
+}
+
+@mixin reveal-animation($delay: 0s) {
+  opacity: 0;
+  transform: translateY(30px) scale(0.98);
+  transition:
+    opacity $transition-slow $delay,
+    transform $transition-slow $delay;
+
+  &.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  @include reduced-motion {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+@mixin focus-visible {
+  &:focus-visible {
+    outline: 2px solid $color-accent;
+    outline-offset: 3px;
+  }
+}
+
+@mixin text-label {
+  font-family: $font-mono;
+  font-size: 0.6875rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: $color-text-subtle;
+}
+
+@mixin heading-display {
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}

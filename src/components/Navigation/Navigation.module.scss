@@ -1,0 +1,126 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: $z-nav;
+  height: $nav-height;
+  display: flex;
+  align-items: center;
+  overflow-x: clip;
+  transition:
+    background-color $transition-base,
+    border-color $transition-base,
+    backdrop-filter $transition-base;
+  border-bottom: 1px solid transparent;
+
+  &.scrolled {
+    background-color: $color-nav-bg;
+    backdrop-filter: blur(12px);
+    border-bottom-color: $color-border;
+  }
+}
+
+.inner {
+  @include container;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  gap: $space-sm;
+}
+
+.logo {
+  @include text-label;
+  font-size: 0.75rem;
+  color: $color-text;
+  letter-spacing: 0.08em;
+  transition: opacity $transition-fast;
+  display: flex;
+  align-items: center;
+  flex: 1 1 auto;
+  min-width: 0;
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  @include focus-visible;
+}
+
+.logoImage {
+  display: block;
+  width: auto;
+  max-width: 180px;
+  object-fit: contain;
+  object-position: left center;
+
+  @include mobile-only {
+    height: 4rem;
+    max-width: none;
+  }
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  gap: $space-lg;
+
+  @include mobile-only {
+    gap: $space-sm;
+  }
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  gap: $space-lg;
+  margin: 0;
+  padding: 0;
+
+  @include mobile-only {
+    gap: $space-xs;
+  }
+}
+
+.link {
+  @include text-label;
+  font-size: 0.6875rem;
+  color: $color-text-muted;
+  transition: color $transition-fast;
+  position: relative;
+  white-space: nowrap;
+
+  @include mobile-only {
+    font-size: 0.625rem;
+    letter-spacing: 0.08em;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: $color-text;
+    transition: width $transition-fast;
+  }
+
+  &:hover,
+  &:focus-visible {
+    color: $color-text;
+
+    &::after {
+      width: 100%;
+    }
+  }
+
+  @include focus-visible;
+}

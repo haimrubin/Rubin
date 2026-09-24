@@ -1,0 +1,44 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.footer {
+  padding-block: $space-xl;
+  border-top: 1px solid $color-border;
+}
+
+.inner {
+  @include container;
+  display: flex;
+  flex-direction: column;
+  gap: $space-sm;
+
+  @include desktop {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.name {
+  @include text-label;
+  font-size: 0.75rem;
+  color: $color-text;
+}
+
+.title {
+  @include text-label;
+  font-size: 0.625rem;
+  color: $color-text-subtle;
+}
+
+.copyright {
+  @include text-label;
+  font-size: 0.625rem;
+  color: $color-text-subtle;
+}

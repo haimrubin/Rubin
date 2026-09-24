@@ -1,0 +1,98 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.contact {
+  padding-block: $space-3xl;
+  border-top: 1px solid $color-border;
+}
+
+.inner {
+  @include container;
+}
+
+.content {
+  @include reveal-animation;
+  max-width: 700px;
+
+  &.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  @include desktop {
+    max-width: none;
+  }
+}
+
+.label {
+  @include text-label;
+  margin-bottom: $space-lg;
+}
+
+.heading {
+  @include heading-display;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  margin-bottom: $space-xl;
+  line-height: 1.1;
+}
+
+.links {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  gap: $space-md;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding-bottom: 2px;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  @include desktop {
+    flex-wrap: wrap;
+    overflow-x: visible;
+    gap: $space-md $space-xl;
+  }
+}
+
+.link {
+  @include text-label;
+  font-size: 0.8125rem;
+  color: $color-text-muted;
+  transition: color $transition-fast;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+  flex-shrink: 0;
+
+  &:hover {
+    color: $color-text;
+  }
+
+  @include focus-visible;
+}
+
+.linkValue {
+  color: $color-text;
+  font-size: 0.875rem;
+  letter-spacing: 0.04em;
+  line-height: 1;
+}
+
+.arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: $color-text;
+  font-size: 0.875rem;
+  line-height: 1;
+  transform: translateY(-0.12em);
+  transition: transform $transition-fast;
+
+  .link:hover & {
+    transform: translateY(-0.12em) translate(2px, -2px);
+  }
+}

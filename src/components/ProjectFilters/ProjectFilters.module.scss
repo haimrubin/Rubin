@@ -1,0 +1,61 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.filters {
+  position: sticky;
+  top: $nav-height;
+  z-index: 50;
+  background: $color-filter-bg;
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid $color-border;
+  padding-block: $space-md;
+}
+
+.inner {
+  @include container;
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-xs $space-md;
+}
+
+.button {
+  @include text-label;
+  font-size: 0.8125rem;
+  color: $color-text-subtle;
+  padding: 8px 0;
+  position: relative;
+  transition: color $transition-fast;
+  white-space: nowrap;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 4px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: $color-text;
+    transition: width $transition-base;
+  }
+
+  &:hover {
+    color: $color-text-muted;
+  }
+
+  &.active {
+    color: $color-text;
+
+    &::after {
+      width: 100%;
+    }
+  }
+
+  @include focus-visible;
+}
+
+.count {
+  font-size: 0.6875rem;
+  color: $color-text-subtle;
+  margin-left: 6px;
+  opacity: 0.65;
+}

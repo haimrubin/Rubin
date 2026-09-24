@@ -1,0 +1,83 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.meta {
+  display: flex;
+  flex-direction: column;
+  gap: $space-sm;
+}
+
+.title {
+  @include heading-display;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  transition: transform $transition-base;
+}
+
+.clientYear {
+  @include text-label;
+  color: $color-text-muted;
+  font-size: 0.6875rem;
+}
+
+.description {
+  font-size: 1rem;
+  color: $color-text-muted;
+  line-height: 1.6;
+  max-width: 560px;
+}
+
+.technologies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-xs $space-sm;
+  margin-top: $space-xs;
+}
+
+.tech {
+  @include text-label;
+  font-size: 0.625rem;
+  color: $color-text-subtle;
+  padding: 4px 0;
+  position: relative;
+
+  &:not(:last-child)::after {
+    content: "·";
+    margin-left: $space-sm;
+    color: $color-text-subtle;
+  }
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  @include text-label;
+  font-size: 0.6875rem;
+  color: $color-text;
+  margin-top: $space-sm;
+  padding: 12px 0;
+  transition:
+    color $transition-fast,
+    gap $transition-fast,
+    transform $transition-fast;
+  width: fit-content;
+
+  &:hover {
+    color: $color-accent;
+  }
+
+  @include focus-visible;
+}
+
+.arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  transform: translateY(-0.12em);
+  transition: transform $transition-fast;
+
+  .link:hover & {
+    transform: translateY(-0.12em) translate(2px, -2px);
+  }
+}

@@ -1,0 +1,35 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  color: $color-text-muted;
+  transition:
+    color $transition-fast,
+    transform $transition-fast;
+  flex-shrink: 0;
+
+  &:hover:not(:disabled),
+  &:focus-visible:not(:disabled) {
+    color: $color-text;
+    transform: scale(1.08);
+  }
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: default;
+  }
+
+  @include focus-visible;
+}
+
+.icon {
+  font-size: 1.125rem;
+  line-height: 1;
+  font-weight: 300;
+  user-select: none;
+}

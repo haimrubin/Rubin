@@ -1,0 +1,73 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.intro {
+  padding-block: $space-2xl;
+  border-top: 1px solid $color-border;
+}
+
+.inner {
+  @include container;
+}
+
+.header {
+  @include reveal-animation;
+  margin-bottom: $space-xl;
+
+  &.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.label {
+  @include text-label;
+  margin-bottom: $space-sm;
+}
+
+.heading {
+  @include heading-display;
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  max-width: 600px;
+  margin-bottom: $space-md;
+}
+
+.subtext {
+  font-size: 1.0625rem;
+  color: $color-text-muted;
+  max-width: 480px;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $space-md;
+  padding-top: $space-xl;
+  border-top: 1px solid $color-border;
+
+  @include mobile-only {
+    gap: $space-lg;
+  }
+}
+
+.stat {
+  @include reveal-animation(var(--delay, 0s));
+
+  &.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.statValue {
+  @include heading-display;
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  color: $color-text;
+  margin-bottom: $space-xs;
+  font-variant-numeric: tabular-nums;
+}
+
+.statLabel {
+  @include text-label;
+  color: $color-text-muted;
+}

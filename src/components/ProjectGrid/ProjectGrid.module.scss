@@ -1,0 +1,26 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.section {
+  padding-bottom: $space-2xl;
+  scroll-margin-top: $nav-height;
+}
+
+.inner {
+  @include container;
+}
+
+.list {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  container-type: inline-size;
+  container-name: project-list;
+}
+
+.empty {
+  padding: $space-2xl 0;
+  text-align: center;
+  @include text-label;
+  color: $color-text-subtle;
+}

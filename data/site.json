@@ -1,0 +1,15 @@
+{
+  "name": "Haim Rubin",
+  "logo": "/logo.png",
+  "logoLight": "/logo light.png",
+  "title": "Full Stack Developer",
+  "description": "Turning ideas into fast, interactive digital experiences.",
+  "email": "haimrubin1@gmail.com",
+  "phone": "052-291-4321",
+  "linkedin": "https://linkedin.com/in/haimrubin",
+  "github": "https://github.com/haimrubin",
+  "stats": {
+    "yearsExperience": "8+",
+    "technologiesCount": null
+  }
+}

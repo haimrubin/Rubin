@@ -1,0 +1,122 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+// Side-by-side only when list container fits 1024 preview + meta (280px) + gap (64px)
+$side-by-side-min: 1368px;
+
+.card {
+  @include reveal-animation(var(--delay, 0s));
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $space-lg;
+  width: 100%;
+  min-width: 0;
+  padding-block: $space-xl;
+  border-top: 1px solid $color-border;
+  transition:
+    opacity $transition-base,
+    transform $transition-base;
+
+  &.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  &.entering {
+    animation: filterEnter 0.5s $ease-out-expo forwards;
+  }
+
+  @include reduced-motion {
+    &.entering {
+      animation: none;
+    }
+  }
+
+  &:hover :global(.browser-preview) {
+    transform: scale(1.005);
+    border-color: $color-border-hover;
+    box-shadow:
+      0 0 0 1px $color-browser-glow-hover,
+      0 30px 80px -20px $color-shadow-strong;
+  }
+
+  &:hover :global(.browser-preview) :global(.browser-dot) {
+    background: $color-browser-dot-hover;
+  }
+
+  &:hover :global(.browser-preview) :global(.browser-preview-image) {
+    transform: scale(1.02);
+  }
+
+  @include reduced-motion {
+    &:hover :global(.browser-preview),
+    &:hover :global(.browser-preview) :global(.browser-preview-image) {
+      transform: none;
+    }
+  }
+
+  @container project-list (min-width: #{$side-by-side-min}) {
+    grid-template-columns: minmax($preview-min-width, 1fr) minmax(280px, 380px);
+    gap: $space-xl;
+    align-items: start;
+    padding-block: $space-2xl;
+
+    &:nth-child(even) {
+      .previewWrap {
+        order: 2;
+      }
+
+      .metaWrap {
+        order: 1;
+      }
+    }
+
+    .metaWrap {
+      position: sticky;
+      top: calc($nav-height + $space-md);
+    }
+  }
+}
+
+.previewWrap {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  container-type: inline-size;
+  container-name: project-preview;
+}
+
+.metaWrap {
+  padding-block: $space-sm;
+  min-width: 0;
+
+  @include desktop {
+    padding-block: $space-md;
+  }
+
+  .card:hover & :global(.project-title) {
+    transform: translateX(4px);
+  }
+
+  .card:hover & :global(.project-link) {
+    gap: 12px;
+  }
+
+  @include reduced-motion {
+    .card:hover & :global(.project-title) {
+      transform: none;
+    }
+  }
+}
+
+@keyframes filterEnter {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}

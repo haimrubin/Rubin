@@ -1,0 +1,46 @@
+import { writeFileSync, mkdirSync } from "fs";
+import { join, dirname } from "path";
+import { fileURLToPath } from "url";
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const outDir = join(__dirname, "../public/projects");
+
+const projects = [
+  { slug: "cts-products", accent: "#4a90d9", label: "CTS Products" },
+  { slug: "up-security", accent: "#6b7280", label: "Up Security" },
+  { slug: "up-defense", accent: "#374151", label: "Up Defense" },
+  { slug: "bio-beat", accent: "#ef4444", label: "Biobeat" },
+  { slug: "loading", accent: "#f97316", label: "Loading" },
+  { slug: "israel-psychotherapy", accent: "#8b5cf6", label: "Israel Psychotherapy" },
+  { slug: "urecsys", accent: "#10b981", label: "Urecsys" },
+  { slug: "spark-founder-lab", accent: "#ec4899", label: "Spark Founder Lab" },
+  { slug: "cts-daridorexant", accent: "#3b82f6", label: "CTS Daridorexant" },
+  { slug: "cts-ferrifol", accent: "#6366f1", label: "CTS Ferrifol" },
+  { slug: "wake-up-webinar", accent: "#14b8a6", label: "Wake-up Webinar" },
+  { slug: "sweetango", accent: "#f59e0b", label: "Sweetango" },
+  { slug: "goodest", accent: "#22c55e", label: "Goodest" },
+];
+
+mkdirSync(outDir, { recursive: true });
+
+for (const { slug, accent, label } of projects) {
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" fill="none">
+  <rect width="1600" height="1000" fill="#111111"/>
+  <rect x="80" y="80" width="1440" height="60" rx="4" fill="#1a1a1a"/>
+  <circle cx="110" cy="110" r="8" fill="#333"/>
+  <circle cx="140" cy="110" r="8" fill="#333"/>
+  <circle cx="170" cy="110" r="8" fill="#333"/>
+  <rect x="600" y="95" width="400" height="30" rx="4" fill="#222"/>
+  <rect x="80" y="180" width="400" height="24" rx="2" fill="${accent}" opacity="0.9"/>
+  <rect x="80" y="240" width="700" height="16" rx="2" fill="#333"/>
+  <rect x="80" y="270" width="550" height="16" rx="2" fill="#2a2a2a"/>
+  <rect x="80" y="300" width="600" height="16" rx="2" fill="#2a2a2a"/>
+  <rect x="80" y="380" width="680" height="400" rx="4" fill="#1a1a1a"/>
+  <rect x="800" y="380" width="320" height="180" rx="4" fill="#1a1a1a"/>
+  <rect x="800" y="590" width="320" height="190" rx="4" fill="#1a1a1a"/>
+  <text x="800" y="540" text-anchor="middle" fill="${accent}" font-family="system-ui, sans-serif" font-size="28" opacity="0.6">${label}</text>
+</svg>`;
+  writeFileSync(join(outDir, `${slug}.svg`), svg);
+}
+
+console.log("Generated preview SVGs");

@@ -1,0 +1,62 @@
+// Typography
+$font-sans: var(--font-sans), system-ui, -apple-system, sans-serif;
+$font-mono: var(--font-mono), ui-monospace, monospace;
+
+// Colors — CSS custom properties defined in globals.scss
+$color-bg: var(--color-bg);
+$color-bg-elevated: var(--color-bg-elevated);
+$color-bg-subtle: var(--color-bg-subtle);
+$color-surface: var(--color-surface);
+$color-border: var(--color-border);
+$color-border-hover: var(--color-border-hover);
+$color-text: var(--color-text);
+$color-text-muted: var(--color-text-muted);
+$color-text-subtle: var(--color-text-subtle);
+$color-accent: var(--color-accent);
+$color-accent-dim: var(--color-accent-dim);
+$color-nav-bg: var(--color-nav-bg);
+$color-filter-bg: var(--color-filter-bg);
+$color-selection-bg: var(--color-selection-bg);
+$color-shadow: var(--color-shadow);
+$color-shadow-strong: var(--color-shadow-strong);
+$color-browser-glow: var(--color-browser-glow);
+$color-browser-glow-hover: var(--color-browser-glow-hover);
+$color-browser-dot: var(--color-browser-dot);
+$color-browser-dot-hover: var(--color-browser-dot-hover);
+$color-browser-address: var(--color-browser-address);
+$color-overlay: var(--color-overlay);
+$color-cursor: var(--color-cursor);
+$color-cursor-blend: var(--color-cursor-blend);
+
+// Spacing
+$space-xs: 0.5rem;
+$space-sm: 1rem;
+$space-md: 1.5rem;
+$space-lg: 2.5rem;
+$space-xl: 4rem;
+$space-2xl: 6rem;
+$space-3xl: 10rem;
+
+// Layout
+$max-width: 1400px;
+$max-width-narrow: 900px;
+$nav-height: 72px;
+
+// Breakpoints
+$bp-tablet: 768px;
+$bp-desktop: 1024px;
+$bp-preview-side-by-side: 1600px;
+
+// Preview — sites switch to mobile layout below 1024px
+$preview-min-width: 1024px;
+
+// Transitions
+$ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+$ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+$transition-fast: 0.2s $ease-out-quart;
+$transition-base: 0.4s $ease-out-expo;
+$transition-slow: 0.7s $ease-out-expo;
+
+// Z-index
+$z-nav: 100;
+$z-cursor: 200;
