@@ -2,6 +2,8 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { getHostname } from "@/lib/data";
+import { useLanguage } from "@/hooks/useLanguage";
+import { getUi } from "@/lib/translations";
 import styles from "./BrowserPreview.module.scss";
 
 interface BrowserPreviewProps {
@@ -23,6 +25,8 @@ export default function BrowserPreview({
   isNearViewport,
   eager = false,
 }: BrowserPreviewProps) {
+  const { language } = useLanguage();
+  const copy = getUi(language);
   const [loadRequested, setLoadRequested] = useState(eager);
   const [iframeState, setIframeState] = useState<
     "idle" | "loading" | "loaded" | "failed"
@@ -91,7 +95,7 @@ export default function BrowserPreview({
           // eslint-disable-next-line @next/next/no-img-element
           <img
             src={preview}
-            alt={`Preview of ${title}`}
+            alt={`${copy.projects.preview} ${title}`}
             className={`${styles.previewImage} browser-preview-image ${iframeState === "loaded" ? styles.previewHidden : ""}`}
             loading={eager ? "eager" : "lazy"}
             fetchPriority={eager ? "high" : "auto"}
@@ -100,7 +104,9 @@ export default function BrowserPreview({
 
         {!preview && iframeState !== "loaded" && (
           <div className={styles.placeholder}>
-            <span className={styles.placeholderText}>Preview unavailable</span>
+            <span className={styles.placeholderText}>
+              {copy.projects.previewUnavailable}
+            </span>
           </div>
         )}
 
@@ -108,12 +114,12 @@ export default function BrowserPreview({
           <>
             {showLoadingOverlay && (
               <div className={styles.loading}>
-                <span className={styles.loadingText}>Loading preview…</span>
+                <span className={styles.loadingText}>{copy.projects.loading}</span>
               </div>
             )}
             <iframe
               src={url!}
-              title={`Live preview of ${title}`}
+              title={`${copy.projects.livePreview} ${title}`}
               className={`${styles.iframe} ${iframeState === "loaded" ? styles.loaded : ""}`}
               loading="eager"
               sandbox="allow-scripts allow-same-origin allow-popups"
@@ -124,7 +130,7 @@ export default function BrowserPreview({
         )}
 
         {useIframe && iframeState === "failed" && (
-          <span className={styles.unavailable}>Live preview unavailable</span>
+          <span className={styles.unavailable}>{copy.projects.unavailable}</span>
         )}
       </div>
     </div>

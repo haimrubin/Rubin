@@ -1,6 +1,8 @@
 "use client";
 
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
+import { useLanguage } from "@/hooks/useLanguage";
+import { getUi } from "@/lib/translations";
 import styles from "./Contact.module.scss";
 
 interface ContactProps {
@@ -17,6 +19,8 @@ function phoneHref(phone: string): string {
 
 export default function Contact({ email, phone, linkedin, github }: ContactProps) {
   const { ref, isVisible } = useIntersectionObserver<HTMLElement>();
+  const { language } = useLanguage();
+  const copy = getUi(language);
 
   return (
     <section
@@ -27,21 +31,21 @@ export default function Contact({ email, phone, linkedin, github }: ContactProps
     >
       <div className={styles.inner}>
         <div className={`${styles.content} ${isVisible ? styles.visible : ""}`}>
-          <p className={styles.label}>Get in Touch</p>
+          <p className={styles.label}>{copy.contact.label}</p>
           <h2 id="contact-heading" className={styles.heading}>
-            Have a project in mind?
+            {copy.contact.headingLineOne}
             <br />
-            Let&apos;s build it.
+            {copy.contact.headingLineTwo}
           </h2>
-          <nav className={styles.links} aria-label="Contact links">
+          <nav className={styles.links} aria-label={copy.contact.linksLabel}>
             <a href={`mailto:${email}`} className={styles.link}>
-              <span>Email</span>
-              <span className={styles.linkValue}>{email}</span>
+              <span>{copy.contact.email}</span>
+              <span className={styles.linkValue} dir="ltr">{email}</span>
             </a>
             {phone && (
               <a href={phoneHref(phone)} className={styles.link}>
-                <span>Phone</span>
-                <span className={styles.linkValue}>{phone}</span>
+                <span>{copy.contact.phone}</span>
+                <span className={styles.linkValue} dir="ltr">{phone}</span>
               </a>
             )}
             <a

@@ -1,3 +1,7 @@
+import type { Language } from "@/context/LanguageContext";
+
+export type LocalizedText = string | Record<Language, string>;
+
 export interface Project {
   id: string;
   slug: string;
@@ -20,6 +24,14 @@ export interface Project {
   gallery?: string[];
 }
 
+export interface LocalizedProject
+  extends Omit<Project, "title" | "client" | "category" | "description"> {
+  title: LocalizedText;
+  client: LocalizedText;
+  category: LocalizedText;
+  description: LocalizedText;
+}
+
 export interface SiteStats {
   yearsExperience?: string;
   technologiesCount?: string | null;
@@ -38,6 +50,12 @@ export interface SiteConfig {
   stats?: SiteStats;
 }
 
+export interface LocalizedSiteConfig
+  extends Omit<SiteConfig, "title" | "description"> {
+  title: LocalizedText;
+  description: LocalizedText;
+}
+
 export interface ProjectsData {
-  projects: Project[];
+  projects: LocalizedProject[];
 }

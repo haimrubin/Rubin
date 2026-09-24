@@ -6,8 +6,11 @@
       "title": "CTS Products",
       "client": "CTS",
       "year": "2025",
-      "category": "Websites",
-      "description": "Corporate product catalog website for a leading pharmaceutical company, with structured product pages and professional content architecture.",
+      "category": { "en": "Websites", "he": "אתרים" },
+      "description": {
+        "en": "Corporate product catalog website for a leading pharmaceutical company, with structured product pages and professional content architecture.",
+        "he": "אתר קטלוג מוצרים לחברת תרופות מובילה, הכולל עמודי מוצר מובנים וארכיטקטורת תוכן מקצועית."
+      },
       "url": "https://www.cts.co.il/cts-products/",
       "technologies": ["WordPress", "PHP", "HTML", "SCSS", "JS", "Custom Theme"],
       "featured": true,
@@ -20,8 +23,11 @@
       "title": "Up Security",
       "client": "Up Security",
       "year": "2025",
-      "category": "Websites",
-      "description": "Corporate website for an execution-driven cybersecurity firm offering CISO as a Service, compliance, and technical security execution.",
+      "category": { "en": "Websites", "he": "אתרים" },
+      "description": {
+        "en": "Corporate website for an execution-driven cybersecurity firm offering CISO as a Service, compliance, and technical security execution.",
+        "he": "אתר תדמית לחברת סייבר המתמחה בשירותי CISO, עמידה ברגולציה ויישום פתרונות אבטחה טכניים."
+      },
       "url": "https://upsecurity.co.il/",
       "technologies": ["WordPress", "PHP", "HTML", "SCSS", "JS", "Custom Theme"],
       "featured": true,
@@ -34,8 +40,11 @@
       "title": "Up Defense",
       "client": "Up Defense",
       "year": "2025",
-      "category": "Websites",
-      "description": "Technical execution website for the SecOps and incident response arm of the Up Security group, focused on hands-on cloud and SaaS security.",
+      "category": { "en": "Websites", "he": "אתרים" },
+      "description": {
+        "en": "Technical execution website for the SecOps and incident response arm of the Up Security group, focused on hands-on cloud and SaaS security.",
+        "he": "אתר טכנולוגי לזרוע ה-SecOps והתגובה לאירועים של קבוצת Up Security, המתמקדת באבטחת ענן ו-SaaS מעשית."
+      },
       "url": "https://updefense.co.il/",
       "technologies": ["WordPress", "PHP", "HTML", "SCSS", "JS", "Custom Theme"],
       "featured": true,
@@ -48,8 +57,11 @@
       "title": "Biobeat",
       "client": "Biobeat",
       "year": "2025",
-      "category": "Websites",
-      "description": "Medical-grade marketing website for FDA-cleared cuffless ambulatory blood pressure monitoring, with clinical content and product showcase.",
+      "category": { "en": "Websites", "he": "אתרים" },
+      "description": {
+        "en": "Medical-grade marketing website for FDA-cleared cuffless ambulatory blood pressure monitoring, with clinical content and product showcase.",
+        "he": "אתר שיווקי רפואי למערכת מאושרת FDA לניטור לחץ דם ללא שרוול, הכולל תוכן קליני והצגת המוצר."
+      },
       "url": "https://www.bio-beat.com/",
       "technologies": ["WordPress", "PHP", "HTML", "SCSS", "JS", "Custom Theme", "Elementor"],
       "featured": true,
@@ -62,8 +74,11 @@
       "title": "Loading",
       "client": "Loading",
       "year": "2025",
-      "category": "Websites",
-      "description": "High-traffic Israeli technology news and reviews platform with editorial content, categories, and dynamic article publishing.",
+      "category": { "en": "Websites", "he": "אתרים" },
+      "description": {
+        "en": "High-traffic Israeli technology news and reviews platform with editorial content, categories, and dynamic article publishing.",
+        "he": "פלטפורמת חדשות וביקורות טכנולוגיה ישראלית עתירת תנועה, עם תוכן מערכתי, קטגוריות ופרסום כתבות דינמי."
+      },
       "url": "https://loading.co.il/",
       "technologies": ["WordPress", "PHP", "HTML", "SCSS", "JS", "Custom Theme"],
       "featured": true,
@@ -73,11 +88,17 @@
     {
       "id": "project-006",
       "slug": "israel-psychotherapy",
-      "title": "Israel Psychotherapy",
-      "client": "Israeli Multidisciplinary Psychotherapy Association",
+      "title": { "en": "Israel Psychotherapy", "he": "פסיכותרפיה בישראל" },
+      "client": {
+        "en": "Israeli Multidisciplinary Psychotherapy Association",
+        "he": "האיגוד הישראלי הרב-תחומי לפסיכותרפיה"
+      },
       "year": "2025",
-      "category": "Websites",
-      "description": "Professional association website with therapist directory, training programs, content library, and membership workflows.",
+      "category": { "en": "Websites", "he": "אתרים" },
+      "description": {
+        "en": "Professional association website with therapist directory, training programs, content library, and membership workflows.",
+        "he": "אתר לאיגוד מקצועי הכולל מאגר מטפלים, תוכניות הכשרה, ספריית תוכן ותהליכי הצטרפות וניהול חברות."
+      },
       "url": "https://israel-psychotherapy.org/",
       "technologies": ["WordPress", "PHP", "HTML", "SCSS", "JS", "Custom Theme"],
       "featured": false,
@@ -90,8 +111,11 @@
       "title": "Urecsys",
       "client": "Urecsys",
       "year": "2025",
-      "category": "Websites",
-      "description": "B2B website for an AI-powered building compliance platform optimizing air quality, ventilation, and HVAC performance.",
+      "category": { "en": "Websites", "he": "אתרים" },
+      "description": {
+        "en": "B2B website for an AI-powered building compliance platform optimizing air quality, ventilation, and HVAC performance.",
+        "he": "אתר B2B לפלטפורמת תאימות מבנים מבוססת AI, המשפרת איכות אוויר, אוורור וביצועי מערכות מיזוג."
+      },
       "url": "https://www.urecsys.com/",
       "technologies": ["WordPress", "PHP", "HTML", "SCSS", "JS", "Custom Theme", "Elementor"],
       "featured": false,
@@ -104,8 +128,11 @@
       "title": "Spark Founder Lab",
       "client": "Spark Founder Lab",
       "year": "2026",
-      "category": "Landing Pages",
-      "description": "Conversion-focused landing page for an entrepreneurial profile assessment, with signup flow and trust-building content sections.",
+      "category": { "en": "Landing Pages", "he": "דפי נחיתה" },
+      "description": {
+        "en": "Conversion-focused landing page for an entrepreneurial profile assessment, with signup flow and trust-building content sections.",
+        "he": "דף נחיתה ממוקד המרות לאבחון פרופיל יזמי, הכולל תהליך הרשמה ותוכן המחזק אמון."
+      },
       "url": "https://lp.sparkfounderlab.com/start",
       "technologies": ["WordPress", "PHP", "HTML", "SCSS", "JS", "Custom Theme", "Elementor"],
       "featured": true,
@@ -118,8 +145,11 @@
       "title": "CTS Daridorexant",
       "client": "CTS",
       "year": "2025",
-      "category": "Landing Pages",
-      "description": "Pharmaceutical product landing page with focused messaging, structured content, and lead-generation layout.",
+      "category": { "en": "Landing Pages", "he": "דפי נחיתה" },
+      "description": {
+        "en": "Pharmaceutical product landing page with focused messaging, structured content, and lead-generation layout.",
+        "he": "דף נחיתה למוצר תרופתי עם מסרים ממוקדים, תוכן מובנה ועיצוב המותאם ליצירת לידים."
+      },
       "url": "https://lp.cts.co.il/daridorexant",
       "technologies": ["WordPress", "PHP", "HTML", "SCSS", "JS", "Custom Theme", "Elementor"],
       "featured": false,
@@ -132,8 +162,11 @@
       "title": "CTS Ferrifol",
       "client": "CTS",
       "year": "2025",
-      "category": "Landing Pages",
-      "description": "Pharmaceutical product landing page built for clear product communication and professional medical branding.",
+      "category": { "en": "Landing Pages", "he": "דפי נחיתה" },
+      "description": {
+        "en": "Pharmaceutical product landing page built for clear product communication and professional medical branding.",
+        "he": "דף נחיתה למוצר תרופתי שנבנה להצגת מידע ברורה ולמיתוג רפואי מקצועי."
+      },
       "url": "https://lp.cts.co.il/ferrifol/",
       "technologies": ["WordPress", "PHP", "HTML", "SCSS", "JS", "Custom Theme", "Elementor"],
       "featured": false,
@@ -146,8 +179,11 @@
       "title": "Wake-up Cyber Webinar",
       "client": "Up Defense",
       "year": "2026",
-      "category": "Landing Pages",
-      "description": "Event landing page for a cybersecurity webinar on AI Agents, LLMs, and Vibe Coding in enterprise environments.",
+      "category": { "en": "Landing Pages", "he": "דפי נחיתה" },
+      "description": {
+        "en": "Event landing page for a cybersecurity webinar on AI Agents, LLMs, and Vibe Coding in enterprise environments.",
+        "he": "דף נחיתה לוובינר סייבר בנושא סוכני AI, מודלי שפה ו-Vibe Coding בסביבות ארגוניות."
+      },
       "url": "https://webinar.wake-up.co.il/",
       "technologies": ["WordPress", "PHP", "HTML", "SCSS", "JS", "Custom Theme"],
       "featured": false,
@@ -160,8 +196,11 @@
       "title": "Sweetango",
       "client": "Sweetango",
       "year": "2025",
-      "category": "WooCommerce",
-      "description": "Full WooCommerce store for a natural sugar-free food brand, with product catalog, recipes, store locator, and membership club.",
+      "category": { "en": "WooCommerce", "he": "חנויות אונליין" },
+      "description": {
+        "en": "Full WooCommerce store for a natural sugar-free food brand, with product catalog, recipes, store locator, and membership club.",
+        "he": "חנות WooCommerce מלאה למותג מזון טבעי ללא סוכר, עם קטלוג מוצרים, מתכונים, איתור חנויות ומועדון לקוחות."
+      },
       "url": "https://sweetango.co.il/",
       "technologies": ["WordPress", "PHP", "HTML", "SCSS", "JS", "Custom Theme", "WooCommerce"],
       "featured": true,
@@ -174,8 +213,11 @@
       "title": "Goodest",
       "client": "Goodest",
       "year": "2025",
-      "category": "WooCommerce",
-      "description": "WooCommerce e-commerce site for sports equipment, cosmetics, and treatment products with category-driven shopping experience.",
+      "category": { "en": "WooCommerce", "he": "חנויות אונליין" },
+      "description": {
+        "en": "WooCommerce e-commerce site for sports equipment, cosmetics, and treatment products with category-driven shopping experience.",
+        "he": "אתר מסחר מבוסס WooCommerce לציוד ספורט, קוסמטיקה ומוצרי טיפול, עם חוויית קנייה מבוססת קטגוריות."
+      },
       "url": "https://goodest.co.il/",
       "technologies": ["WordPress", "PHP", "HTML", "SCSS", "JS", "Custom Theme", "WooCommerce"],
       "featured": false,
@@ -188,12 +230,54 @@
       "title": "Matzavim",
       "client": "Matzavim",
       "year": "2025",
-      "category": "CRM",
-      "description": "A secure therapist portal for managing cases, documenting treatment sessions, submitting payment requests and handling treatment documents through a streamlined workflow.",
+      "category": { "en": "CRM", "he": "מערכות CRM" },
+      "description": {
+        "en": "A secure therapist portal for managing cases, documenting treatment sessions, submitting payment requests and handling treatment documents through a streamlined workflow.",
+        "he": "פורטל מאובטח למטפלים לניהול תיקים, תיעוד מפגשים, הגשת בקשות תשלום וטיפול במסמכים בתהליך עבודה יעיל."
+      },
       "technologies": ["WordPress", "PHP", "Zoho CRM", "REST API", "JavaScript"],
       "featured": true,
       "iframe": false,
-      "preview": "/projects/matzavim.svg"
+      "preview": "/projects/matzavim.png"
+    },
+    {
+      "id": "project-015",
+      "slug": "doxi",
+      "title": "Doxi",
+      "client": "Consist",
+      "year": "2025",
+      "category": { "en": "Websites", "he": "אתרים" },
+      "description": {
+        "en": "Hebrew marketing website for a cloud and on-prem digital signature platform, covering approval workflows, industry solutions, and lead capture.",
+        "he": "אתר שיווקי בעברית לפלטפורמת חתימות דיגיטליות בענן ובשרתי הארגון, הכולל סבבי אישורים, פתרונות ענפיים ואיסוף לידים."
+      },
+      "url": "https://doxi.co.il/",
+      "technologies": ["WordPress", "PHP", "HTML", "SCSS", "JS", "Custom Theme", "Elementor"],
+      "featured": true,
+      "iframe": true,
+      "preview": "/projects/doxi.svg"
+    },
+    {
+      "id": "project-016",
+      "slug": "crm-management-platform",
+      "title": {
+        "en": "CRM Management Platform",
+        "he": "מערכת לניהול לקוחות"
+      },
+      "client": {
+        "en": "CRM Management Platform",
+        "he": "פלטפורמת CRM"
+      },
+      "year": "2025",
+      "category": { "en": "CRM", "he": "מערכות CRM" },
+      "description": {
+        "en": "A modern CRM platform built to help businesses manage their customers, track interactions, monitor payment history and keep all customer activity organized in one place. The system provides a centralized dashboard for managing customer data, viewing activity history, tracking transactions and streamlining day-to-day customer management.",
+        "he": "פלטפורמת CRM מודרנית המסייעת לעסקים לנהל לקוחות, לעקוב אחר אינטראקציות והיסטוריית תשלומים ולרכז את כל פעילות הלקוח במקום אחד. המערכת כוללת לוח בקרה מרכזי לניהול נתונים, צפייה בהיסטוריית פעילות, מעקב אחר עסקאות וייעול העבודה השוטפת."
+      },
+      "technologies": ["React", "Next.js", "TypeScript", "REST API", "JavaScript", "SCSS"],
+      "featured": true,
+      "iframe": false,
+      "preview": "/projects/hub.png"
     }
   ]
 }

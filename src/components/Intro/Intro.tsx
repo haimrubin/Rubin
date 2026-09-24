@@ -1,16 +1,19 @@
 "use client";
 
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
+import { useLanguage } from "@/hooks/useLanguage";
+import { getUi } from "@/lib/translations";
 import styles from "./Intro.module.scss";
 
 interface IntroProps {
-  projectCount: number;
   techCount: string;
   years: string | null;
 }
 
-export default function Intro({ projectCount, techCount, years }: IntroProps) {
+export default function Intro({ techCount, years }: IntroProps) {
   const { ref, isVisible } = useIntersectionObserver<HTMLElement>();
+  const { language } = useLanguage();
+  const copy = getUi(language);
 
   return (
     <section
@@ -21,24 +24,23 @@ export default function Intro({ projectCount, techCount, years }: IntroProps) {
     >
       <div className={styles.inner}>
         <div className={`${styles.header} ${isVisible ? styles.visible : ""}`}>
-          <p className={styles.label}>Selected Work</p>
+          <p className={styles.label}>{copy.intro.label}</p>
           <h2 id="intro-heading" className={styles.heading}>
-            Websites, products and digital experiences built from scratch.
+            {copy.intro.heading}
           </h2>
           <p className={styles.subtext}>
-            Each project represents a complete digital product — from strategy
-            and design through development and launch.
+            {copy.intro.subtext}
           </p>
         </div>
 
-        <div className={styles.stats} role="list" aria-label="Portfolio statistics">
+        <div className={styles.stats} role="list" aria-label={copy.intro.statsLabel}>
           <div
             className={`${styles.stat} ${isVisible ? styles.visible : ""}`}
             style={{ "--delay": "0.1s" } as React.CSSProperties}
             role="listitem"
           >
-            <p className={styles.statValue}>{projectCount}</p>
-            <p className={styles.statLabel}>Projects</p>
+            <p className={styles.statValue}>∞</p>
+            <p className={styles.statLabel}>{copy.intro.ideas}</p>
           </div>
           {years && (
             <div
@@ -47,7 +49,7 @@ export default function Intro({ projectCount, techCount, years }: IntroProps) {
               role="listitem"
             >
               <p className={styles.statValue}>{years}</p>
-              <p className={styles.statLabel}>Years</p>
+              <p className={styles.statLabel}>{copy.intro.years}</p>
             </div>
           )}
           <div
@@ -56,7 +58,7 @@ export default function Intro({ projectCount, techCount, years }: IntroProps) {
             role="listitem"
           >
             <p className={styles.statValue}>{techCount}</p>
-            <p className={styles.statLabel}>Technologies</p>
+            <p className={styles.statLabel}>{copy.intro.technologies}</p>
           </div>
         </div>
       </div>

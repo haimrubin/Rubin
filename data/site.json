@@ -2,8 +2,14 @@
   "name": "Haim Rubin",
   "logo": "/logo.png",
   "logoLight": "/logo light.png",
-  "title": "Full Stack Developer",
-  "description": "Turning ideas into fast, interactive digital experiences.",
+  "title": {
+    "en": "Full Stack Developer",
+    "he": "מפתח Full Stack"
+  },
+  "description": {
+    "en": "Turning ideas into fast, interactive digital experiences.",
+    "he": "הופך רעיונות לחוויות דיגיטליות מהירות ואינטראקטיביות."
+  },
   "email": "haimrubin1@gmail.com",
   "phone": "052-291-4321",
   "linkedin": "https://linkedin.com/in/haimrubin",

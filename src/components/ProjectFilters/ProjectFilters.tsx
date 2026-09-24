@@ -1,6 +1,8 @@
 "use client";
 
 import styles from "./ProjectFilters.module.scss";
+import { useLanguage } from "@/hooks/useLanguage";
+import { getUi } from "@/lib/translations";
 
 interface ProjectFiltersProps {
   categories: string[];
@@ -17,8 +19,11 @@ export default function ProjectFilters({
   counts,
   totalCount,
 }: ProjectFiltersProps) {
+  const { language } = useLanguage();
+  const copy = getUi(language);
+
   return (
-    <div className={styles.filters} role="group" aria-label="Filter projects by category">
+    <div className={styles.filters} role="group" aria-label={copy.projects.filterLabel}>
       <div className={styles.inner}>
         <button
           type="button"
@@ -26,7 +31,7 @@ export default function ProjectFilters({
           onClick={() => onCategoryChange("All")}
           aria-pressed={activeCategory === "All"}
         >
-          All
+          {copy.projects.all}
           <span className={styles.count} aria-hidden="true">
             {totalCount}
           </span>

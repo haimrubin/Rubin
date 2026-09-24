@@ -1,3 +1,7 @@
+"use client";
+
+import { useLanguage } from "@/hooks/useLanguage";
+import { getUi } from "@/lib/translations";
 import styles from "./ProjectMeta.module.scss";
 
 interface ProjectMetaProps {
@@ -17,6 +21,9 @@ export default function ProjectMeta({
   technologies,
   url,
 }: ProjectMetaProps) {
+  const { language } = useLanguage();
+  const copy = getUi(language);
+
   return (
     <div className={styles.meta}>
       <h3 className={`${styles.title} project-title`}>{title}</h3>
@@ -25,7 +32,7 @@ export default function ProjectMeta({
       </p>
       {description && <p className={styles.description}>{description}</p>}
       {technologies && technologies.length > 0 && (
-        <ul className={styles.technologies} aria-label="Technologies used">
+        <ul className={styles.technologies} aria-label={copy.projects.technologiesLabel}>
           {technologies.map((tech) => (
             <li key={tech} className={styles.tech}>
               {tech}
@@ -41,7 +48,7 @@ export default function ProjectMeta({
           rel="noopener noreferrer"
           data-cursor="view"
         >
-          View Live Website
+          {copy.projects.viewLive}
           <span className={styles.arrow} aria-hidden="true">
             ↗
           </span>

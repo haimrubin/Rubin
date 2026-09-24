@@ -1,14 +1,39 @@
 import projectsData from "../../data/projects.json";
 import siteData from "../../data/site.json";
-import type { Project, ProjectsData, SiteConfig } from "@/types";
+import type { Language } from "@/context/LanguageContext";
+import type {
+  LocalizedSiteConfig,
+  LocalizedText,
+  Project,
+  ProjectsData,
+  SiteConfig,
+} from "@/types";
 
-export function getSiteConfig(): SiteConfig {
-  return siteData as SiteConfig;
+function localize(value: LocalizedText, language: Language): string {
+  return typeof value === "string" ? value : value[language];
 }
 
-export function getProjects(): Project[] {
+export function getSiteConfig(language: Language = "en"): SiteConfig {
+  const site = siteData as LocalizedSiteConfig;
+
+  return {
+    ...site,
+    title: localize(site.title, language),
+    description: localize(site.description, language),
+  };
+}
+
+export function getProjects(language: Language = "en"): Project[] {
   const { projects } = projectsData as ProjectsData;
-  return [...projects].sort((a, b) => {
+  const localizedProjects = projects.map((project) => ({
+    ...project,
+    title: localize(project.title, language),
+    client: localize(project.client, language),
+    category: localize(project.category, language),
+    description: localize(project.description, language),
+  }));
+
+  return localizedProjects.sort((a, b) => {
     if (a.featured && !b.featured) return -1;
     if (!a.featured && b.featured) return 1;
     return 0;

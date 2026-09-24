@@ -1,7 +1,9 @@
 "use client";
 
-import { useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import type { Project } from "@/types";
+import { useLanguage } from "@/hooks/useLanguage";
+import { getUi } from "@/lib/translations";
 import ProjectCard from "@/components/ProjectCard/ProjectCard";
 import ProjectFilters from "@/components/ProjectFilters/ProjectFilters";
 import styles from "./ProjectGrid.module.scss";
@@ -14,6 +16,12 @@ interface ProjectGridProps {
 export default function ProjectGrid({ projects, categories }: ProjectGridProps) {
   const [activeCategory, setActiveCategory] = useState("All");
   const sectionRef = useRef<HTMLElement>(null);
+  const { language } = useLanguage();
+  const copy = getUi(language);
+
+  useEffect(() => {
+    setActiveCategory("All");
+  }, [language]);
 
   const counts = useMemo(() => {
     const map: Record<string, number> = {};
@@ -46,7 +54,7 @@ export default function ProjectGrid({ projects, categories }: ProjectGridProps) 
       aria-labelledby="work-heading"
     >
       <h2 id="work-heading" className="sr-only">
-        Portfolio Projects
+        {copy.projects.heading}
       </h2>
 
       <ProjectFilters
@@ -71,7 +79,7 @@ export default function ProjectGrid({ projects, categories }: ProjectGridProps) 
 
         {filteredProjects.length === 0 && (
           <p className={styles.empty} role="status">
-            No projects in this category.
+            {copy.projects.empty}
           </p>
         )}
       </div>

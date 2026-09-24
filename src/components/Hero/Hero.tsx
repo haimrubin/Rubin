@@ -1,3 +1,7 @@
+"use client";
+
+import { useLanguage } from "@/hooks/useLanguage";
+import { getUi } from "@/lib/translations";
 import styles from "./Hero.module.scss";
 
 interface HeroProps {
@@ -7,6 +11,9 @@ interface HeroProps {
 }
 
 export default function Hero({ name, title, description }: HeroProps) {
+  const { language } = useLanguage();
+  const copy = getUi(language);
+
   return (
     <section id="hero" className={styles.hero} aria-labelledby="hero-heading">
       <div className={styles.line} aria-hidden="true" />
@@ -20,7 +27,7 @@ export default function Hero({ name, title, description }: HeroProps) {
         </div>
       </div>
       <div className={styles.scrollHint} aria-hidden="true">
-        <span>Scroll to explore</span>
+        <span>{copy.hero.scroll}</span>
         <span className={styles.arrow}>↓</span>
       </div>
     </section>

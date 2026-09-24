@@ -106,7 +106,7 @@
     content: "";
     position: absolute;
     bottom: -4px;
-    left: 0;
+    inset-inline-start: 0;
     width: 0;
     height: 1px;
     background: $color-text;
@@ -123,4 +123,24 @@
   }
 
   @include focus-visible;
+}
+
+.languageToggle {
+  @include text-label;
+  min-width: 2rem;
+  padding: 0.5rem 0.25rem;
+  color: $color-text-muted;
+  font-size: 0.6875rem;
+  transition: color $transition-fast;
+
+  &:hover,
+  &:focus-visible {
+    color: $color-text;
+  }
+
+  @include focus-visible;
+}
+
+[dir="rtl"] .logoImage {
+  object-position: right center;
 }

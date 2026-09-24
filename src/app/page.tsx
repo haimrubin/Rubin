@@ -1,3 +1,5 @@
+"use client";
+
 import Navigation from "@/components/Navigation/Navigation";
 import Hero from "@/components/Hero/Hero";
 import Intro from "@/components/Intro/Intro";
@@ -10,10 +12,12 @@ import {
   getCategories,
   getProjectStats,
 } from "@/lib/data";
+import { useLanguage } from "@/hooks/useLanguage";
 
 export default function HomePage() {
-  const site = getSiteConfig();
-  const projects = getProjects();
+  const { language } = useLanguage();
+  const site = getSiteConfig(language);
+  const projects = getProjects(language);
   const categories = getCategories(projects);
   const stats = getProjectStats(projects, site);
 
@@ -31,7 +35,6 @@ export default function HomePage() {
           description={site.description}
         />
         <Intro
-          projectCount={stats.projectCount}
           techCount={stats.techCount}
           years={stats.years}
         />

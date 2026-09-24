@@ -2,7 +2,9 @@
 
 import { useEffect, useState } from "react";
 import ThemeToggle from "@/components/ThemeToggle/ThemeToggle";
+import { useLanguage } from "@/hooks/useLanguage";
 import { useTheme } from "@/hooks/useTheme";
+import { getUi } from "@/lib/translations";
 import styles from "./Navigation.module.scss";
 
 interface NavigationProps {
@@ -14,6 +16,8 @@ interface NavigationProps {
 export default function Navigation({ name, logo, logoLight }: NavigationProps) {
   const [scrolled, setScrolled] = useState(false);
   const { theme } = useTheme();
+  const { language, toggleLanguage } = useLanguage();
+  const copy = getUi(language);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 40);
@@ -33,7 +37,7 @@ export default function Navigation({ name, logo, logoLight }: NavigationProps) {
   return (
     <nav
       className={`${styles.nav} ${scrolled ? styles.scrolled : ""}`}
-      aria-label="Main navigation"
+      aria-label={copy.navigation.label}
     >
       <div className={styles.inner}>
         <a
@@ -62,7 +66,7 @@ export default function Navigation({ name, logo, logoLight }: NavigationProps) {
                 className={styles.link}
                 onClick={(e) => handleClick(e, "work")}
               >
-                Work
+                {copy.navigation.work}
               </a>
             </li>
             <li>
@@ -71,7 +75,7 @@ export default function Navigation({ name, logo, logoLight }: NavigationProps) {
                 className={styles.link}
                 onClick={(e) => handleClick(e, "about")}
               >
-                About
+                {copy.navigation.about}
               </a>
             </li>
             <li>
@@ -80,10 +84,18 @@ export default function Navigation({ name, logo, logoLight }: NavigationProps) {
                 className={styles.link}
                 onClick={(e) => handleClick(e, "contact")}
               >
-                Contact
+                {copy.navigation.contact}
               </a>
             </li>
           </ul>
+          <button
+            type="button"
+            className={styles.languageToggle}
+            onClick={toggleLanguage}
+            aria-label={copy.language.label}
+          >
+            {copy.language.short}
+          </button>
           <ThemeToggle />
         </div>
       </div>

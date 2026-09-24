@@ -42,7 +42,7 @@
 
   &:not(:last-child)::after {
     content: "·";
-    margin-left: $space-sm;
+    margin-inline-start: $space-sm;
     color: $color-text-subtle;
   }
 }
