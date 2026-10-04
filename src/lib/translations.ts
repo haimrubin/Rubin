@@ -26,7 +26,7 @@ export const ui = {
       label: "Selected Work",
       heading: "Websites, products and digital experiences built from scratch.",
       subtext:
-        "Each project represents a complete digital product — from strategy and design through development and launch.",
+        "Each project represents a complete digital product - from strategy and design through development and launch.",
       statsLabel: "Portfolio statistics",
       ideas: "Ideas Turned Into Digital",
       years: "Years",
@@ -79,7 +79,7 @@ export const ui = {
       label: "עבודות נבחרות",
       heading: "אתרים, מוצרים וחוויות דיגיטליות שנבנו מאפס.",
       subtext:
-        "כל פרויקט הוא מוצר דיגיטלי שלם — משלב האסטרטגיה והעיצוב ועד לפיתוח ולהשקה.",
+        "כל פרויקט הוא מוצר דיגיטלי שלם - משלב האסטרטגיה והעיצוב ועד לפיתוח ולהשקה.",
       statsLabel: "נתוני תיק העבודות",
       ideas: "רעיונות שהפכו לדיגיטל",
       years: "שנות ניסיון",

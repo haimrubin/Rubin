@@ -42,7 +42,7 @@ export default function BrowserPreview({
     }
   }, []);
 
-  // Once near viewport (or eager), keep load requested — don't unmount iframe on scroll away
+  // Once near viewport (or eager), keep load requested - don't unmount iframe on scroll away
   useEffect(() => {
     if (useIframe && (eager || isNearViewport)) {
       setLoadRequested(true);

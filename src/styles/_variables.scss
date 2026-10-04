@@ -2,7 +2,7 @@
 $font-sans: var(--font-sans), system-ui, -apple-system, sans-serif;
 $font-mono: var(--font-mono), ui-monospace, monospace;
 
-// Colors — CSS custom properties defined in globals.scss
+// Colors - CSS custom properties defined in globals.scss
 $color-bg: var(--color-bg);
 $color-bg-elevated: var(--color-bg-elevated);
 $color-bg-subtle: var(--color-bg-subtle);
@@ -47,7 +47,7 @@ $bp-tablet: 768px;
 $bp-desktop: 1024px;
 $bp-preview-side-by-side: 1600px;
 
-// Preview — sites switch to mobile layout below 1024px
+// Preview - sites switch to mobile layout below 1024px
 $preview-min-width: 1024px;
 
 // Transitions

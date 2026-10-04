@@ -1,6 +1,6 @@
-# Haim Rubin — Portfolio
+# Haim Rubin - Portfolio
 
-Premium developer portfolio built with Next.js, TypeScript, and SCSS. All content is driven by JSON data files — no CMS or database required.
+Premium developer portfolio built with Next.js, TypeScript, and SCSS. All content is driven by JSON data files - no CMS or database required.
 
 ## Getting Started
 
@@ -13,7 +13,7 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ## Adding Projects
 
-Edit `data/projects.json` — add a new object to the `projects` array:
+Edit `data/projects.json` - add a new object to the `projects` array:
 
 ```json
 {
@@ -40,7 +40,7 @@ Edit `data/site.json` for personal info, contact links, and stats.
 
 ## Deploy
 
-Deploy to [Vercel](https://vercel.com) — zero config required.
+Deploy to [Vercel](https://vercel.com) - zero config required.
 
 ```bash
 npm run build
