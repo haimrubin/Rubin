@@ -7,6 +7,8 @@ export const ui = {
       work: "Work",
       about: "About",
       contact: "Contact",
+      openMenu: "Open menu",
+      closeMenu: "Close menu",
     },
     language: {
       label: "Switch language to Hebrew",
@@ -58,6 +60,8 @@ export const ui = {
       work: "עבודות",
       about: "אודות",
       contact: "יצירת קשר",
+      openMenu: "פתיחת תפריט",
+      closeMenu: "סגירת תפריט",
     },
     language: {
       label: "החלפת שפה לאנגלית",

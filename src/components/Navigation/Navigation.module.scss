@@ -22,6 +22,12 @@
     backdrop-filter: blur(12px);
     border-bottom-color: $color-border;
   }
+
+  &.menuOpen {
+    background-color: $color-bg;
+    backdrop-filter: none;
+    border-bottom-color: $color-border;
+  }
 }
 
 .inner {
@@ -85,7 +91,7 @@
   padding: 0;
 
   @include mobile-only {
-    gap: $space-xs;
+    display: none;
   }
 }
 
@@ -96,11 +102,6 @@
   transition: color $transition-fast;
   position: relative;
   white-space: nowrap;
-
-  @include mobile-only {
-    font-size: 0.625rem;
-    letter-spacing: 0.08em;
-  }
 
   &::after {
     content: "";
@@ -143,4 +144,179 @@
 
 [dir="rtl"] .logoImage {
   object-position: right center;
+}
+
+// Hamburger — three lines that morph into an X
+$hamburger-size: 40px;
+$hamburger-line-width: 22px;
+$hamburger-line-height: 1.5px;
+$hamburger-line-gap: 6px;
+
+.hamburger {
+  display: none;
+  position: relative;
+  width: $hamburger-size;
+  height: $hamburger-size;
+  flex-shrink: 0;
+  color: $color-text;
+  transition: transform $transition-fast;
+
+  @include mobile-only {
+    display: block;
+  }
+
+  &:hover,
+  &:focus-visible {
+    transform: scale(1.06);
+  }
+
+  @include focus-visible;
+}
+
+.hamburgerLine {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: $hamburger-line-width;
+  height: $hamburger-line-height;
+  background: currentColor;
+  border-radius: 2px;
+  transform-origin: center;
+  // Two-step motion: lines collapse to center, then rotate into an X
+  transition:
+    transform 0.35s $ease-out-expo 0.2s,
+    opacity 0.2s ease 0.2s,
+    width 0.3s $ease-out-expo 0.2s;
+
+  &:nth-child(1) {
+    transform: translate(-50%, calc(-50% - #{$hamburger-line-gap}));
+  }
+
+  &:nth-child(2) {
+    transform: translate(-50%, -50%);
+    transition-delay: 0.2s;
+  }
+
+  &:nth-child(3) {
+    transform: translate(-50%, calc(-50% + #{$hamburger-line-gap}));
+  }
+
+  @include reduced-motion {
+    transition: none;
+  }
+}
+
+.hamburger.open .hamburgerLine {
+  transition:
+    transform 0.35s $ease-out-expo 0.1s,
+    opacity 0.15s ease,
+    width 0.3s $ease-out-expo 0.1s;
+
+  &:nth-child(1) {
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+
+  &:nth-child(2) {
+    opacity: 0;
+    width: 0;
+    transition-delay: 0s;
+  }
+
+  &:nth-child(3) {
+    transform: translate(-50%, -50%) rotate(-45deg);
+  }
+}
+
+// Full-screen mobile menu panel
+.menu {
+  position: fixed;
+  top: $nav-height;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: $z-nav - 1;
+  display: none;
+  background: $color-bg;
+  padding-block: $space-xl $space-lg;
+  visibility: hidden;
+  opacity: 0;
+  clip-path: inset(0 0 100% 0);
+  transition:
+    opacity $transition-base,
+    clip-path 0.6s $ease-out-expo,
+    visibility 0s linear 0.6s;
+
+  @include mobile-only {
+    display: block;
+  }
+
+  &.menuVisible {
+    visibility: visible;
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+    transition:
+      opacity $transition-fast,
+      clip-path 0.6s $ease-out-expo,
+      visibility 0s;
+  }
+
+  @include reduced-motion {
+    transition: none;
+    clip-path: none;
+  }
+}
+
+.menuList {
+  @include container;
+  display: flex;
+  flex-direction: column;
+  gap: $space-md;
+  margin: 0;
+  padding-block: 0;
+}
+
+.menuItem {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.5s $ease-out-expo,
+    transform 0.6s $ease-out-expo;
+
+  .menuVisible & {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: calc(0.15s + var(--i, 0) * 0.07s);
+  }
+
+  @include reduced-motion {
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.menuLink {
+  @include heading-display;
+  display: flex;
+  align-items: baseline;
+  gap: $space-sm;
+  font-size: clamp(2.25rem, 9vw, 3.5rem);
+  color: $color-text;
+  padding-block: $space-xs;
+  border-bottom: 1px solid $color-border;
+  transition: color $transition-fast;
+
+  &:hover,
+  &:focus-visible {
+    color: $color-text-muted;
+  }
+
+  @include focus-visible;
+}
+
+.menuIndex {
+  @include text-label;
+  font-size: 0.6875rem;
+  color: $color-text-subtle;
+  letter-spacing: 0.12em;
 }
